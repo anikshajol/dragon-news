@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../Nav/Nav";
 import NewsDetailsCard from "./NewsDetailsCard";
 import RightAside from "../Layouts/RightAside";
 import Header from "../Layouts/Header";
+import { useLoaderData, useParams } from "react-router";
 
 const NewsDetails = () => {
+  const [news, setNews] = useState([]);
+  const { id } = useParams();
+  const data = useLoaderData();
+  // console.log(data, id);
+
+  useEffect(() => {
+    const newsDetails = data.find((news) => news.id == id);
+    setNews(newsDetails);
+  }, [data, id]);
+
   return (
     <>
-      {" "}
       <header className="w-10/12 py-8 mx-auto">
         <Header />
         <section className="pt-7 ">
@@ -16,7 +26,8 @@ const NewsDetails = () => {
       </header>
       <main className="grid grid-cols-12 w-10/12 mx-auto">
         <section className="main col-span-9">
-          <NewsDetailsCard />
+          <h2 className="font-semibold mb-2">Dragon News</h2>
+          <NewsDetailsCard news={news} />
         </section>
         <aside className="right-nav col-span-3">
           <RightAside />

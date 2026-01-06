@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router";
 import userImg from "../../assets/user.png";
 import { AuthContext } from "../../Context/AuthContext";
 const Nav = () => {
-  const { user, logOut, loading } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   console.log(user);
 
   const link = (
@@ -56,7 +56,7 @@ const Nav = () => {
             className="w-8 rounded-full"
           />
           {!user ? (
-            <Link to="auth/login" className="btn btn-primary">
+            <Link to="/auth/login" className="btn btn-primary">
               Login
             </Link>
           ) : (
