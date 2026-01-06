@@ -1,5 +1,6 @@
 import React from "react";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const SocialLogin = () => {
   return (
@@ -11,9 +12,10 @@ const SocialLogin = () => {
           <button
             aria-label="Login with Google"
             type="button"
-            className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 text-blue-500 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
+            className="flex items-center justify-center w-full p-2 space-x-2 border rounded-md focus:ring-2 text-blue-400 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
           >
-            <FaGoogle />
+            <FcGoogle />
+
             <p>Login with Google</p>
           </button>
           <button

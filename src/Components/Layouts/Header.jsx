@@ -23,9 +23,6 @@ const Header = () => {
           <span className="text-primary">{day}</span> {currentDate}
         </span>
       </div>
-      <div>
-        <Latest />
-      </div>
     </div>
   );
 };

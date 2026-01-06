@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import Categories from "../Categories/Categories";
+import Tags from "../Tags/Tags";
 
 const LeftAside = () => {
   return (
@@ -11,6 +12,7 @@ const LeftAside = () => {
       >
         <Categories />
       </Suspense>
+      <Tags />
     </div>
   );
 };

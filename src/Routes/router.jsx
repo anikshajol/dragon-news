@@ -3,6 +3,10 @@ import MainLayouts from "../Components/Layouts/MainLayouts";
 import Home from "../Pages/Home";
 import Error from "../Pages/Error";
 import CategoryNews from "../Pages/CategoryNews";
+import AuthLayout from "../Components/Layouts/AuthLayout";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
+import NewsDetails from "../Components/NewsDetails/NewsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -19,4 +23,13 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      { path: "/auth/login", element: <Login /> },
+      { path: "/auth/register", Component: Register },
+    ],
+  },
+  { path: "/newsDetails/:id", element: <NewsDetails /> },
 ]);

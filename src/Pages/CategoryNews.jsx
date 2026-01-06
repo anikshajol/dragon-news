@@ -5,9 +5,9 @@ import NewsCard from "../Components/NewsCard/NewsCard";
 const CategoryNews = () => {
   const [filteredNews, setFilteredNews] = useState([]);
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const data = useLoaderData();
-  console.log(data);
+  // console.log(data);
   useEffect(() => {
     if (id == "0") {
       // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -23,7 +23,7 @@ const CategoryNews = () => {
       setFilteredNews(filteredNews);
     }
   }, [data, id]);
-  console.log(filteredNews);
+  // console.log(filteredNews);
 
   return (
     <div>
