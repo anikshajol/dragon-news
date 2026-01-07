@@ -3,9 +3,9 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
-  const { loginUser, user } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate();
   const location = useLocation();
 

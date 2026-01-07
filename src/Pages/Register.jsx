@@ -6,14 +6,20 @@ import { auth } from "../Firebase/firebase.init";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser, logOut, loading: load } = useContext(AuthContext);
+  const { createUser, logOut } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
-  if (load) {
-    return;
-  }
+  const [nameError, setNameError] = useState("");
+
   const handleCreateUser = (e) => {
     e.preventDefault();
+
     const userName = e.target.name.value;
+    if (userName.length < 5) {
+      setNameError("Name Should be at least 5 character");
+      return;
+    } else {
+      setNameError("");
+    }
     const url = e.target.photoUrl.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -39,7 +45,8 @@ const Register = () => {
         setLoading(false);
 
         // logOut();
-        navigate("/auth/login");
+        // navigate("/auth/login");
+        navigate("/");
       })
       .catch((err) => console.log(err.message));
   };
@@ -58,7 +65,14 @@ const Register = () => {
               name="name"
               className="input w-full"
               placeholder="Enter Your Name"
+              onChange={(e) => {
+                const name = e.target.value;
+                if (name.length > 5) {
+                  setNameError("");
+                }
+              }}
             />
+            {nameError && <p className="text-red-400">{nameError}</p>}
             {/* photo url */}
             <label className="label">Photo URL</label>
             <input

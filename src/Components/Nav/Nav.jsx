@@ -4,7 +4,7 @@ import userImg from "../../assets/user.png";
 import { AuthContext } from "../../Context/AuthContext";
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const link = (
     <>
