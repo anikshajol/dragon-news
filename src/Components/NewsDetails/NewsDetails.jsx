@@ -13,6 +13,7 @@ const NewsDetails = () => {
 
   useEffect(() => {
     const newsDetails = data.find((news) => news.id == id);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setNews(newsDetails);
   }, [data, id]);
 

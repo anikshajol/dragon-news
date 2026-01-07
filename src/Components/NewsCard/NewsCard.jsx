@@ -2,6 +2,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { FaBookmark, FaShare } from "react-icons/fa";
 import { MdOutlineSms } from "react-icons/md";
 import { Link } from "react-router";
+import NoImage from "../../assets/download.jpeg";
 const NewsCard = ({ news }) => {
   //   const date = new Date();
   //   const currentDate = date.toLocaleDateString("en-US", {
@@ -9,20 +10,8 @@ const NewsCard = ({ news }) => {
   //     month: "numeric", // "November"
   //     day: "numeric", // "27"
   //   });
-  const {
-    id,
-    category_id,
-    title,
-    rating,
-    total_view,
-    author,
-    thumbnail_url,
-    image_url,
-    details,
-    tags,
-    others,
-    production,
-  } = news;
+
+  const { id, title, author, thumbnail_url, details } = news;
 
   return (
     <div className="flex flex-col max-w-lg space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
@@ -66,7 +55,10 @@ const NewsCard = ({ news }) => {
       {/* card body */}
       <div className="px-3">
         <img
-          src={thumbnail_url}
+          src={thumbnail_url || NoImage}
+          onError={(e) => {
+            e.target.src = { NoImage };
+          }}
           alt={title}
           className="object-cover mt-3 rounded-lg w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
         />

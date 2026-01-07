@@ -20,6 +20,7 @@ const CategoryNews = () => {
       setFilteredNews(filteredNews);
     } else {
       const filteredNews = data.filter((news) => news.category_id == id);
+
       setFilteredNews(filteredNews);
     }
   }, [data, id]);
@@ -29,9 +30,15 @@ const CategoryNews = () => {
     <div>
       <h2 className="font-semibold">Total {filteredNews.length} news found</h2>
       <section className="grid grid-cols-1 gap-5 mt-5 px-4">
-        {filteredNews.map((news) => (
-          <NewsCard key={news.id} news={news}></NewsCard>
-        ))}
+        {filteredNews.length === 0 ? (
+          <p className="text-center text-2xl font-semibold text-secondary">
+            No data
+          </p>
+        ) : (
+          filteredNews.map((news) => (
+            <NewsCard key={news.id} news={news}></NewsCard>
+          ))
+        )}
       </section>
     </div>
   );

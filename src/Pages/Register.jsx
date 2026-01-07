@@ -6,7 +6,7 @@ import { auth } from "../Firebase/firebase.init";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser, logOut } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [nameError, setNameError] = useState("");
 

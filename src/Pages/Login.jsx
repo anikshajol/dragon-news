@@ -16,8 +16,8 @@ const Login = () => {
     setLoading(true);
     loginUser(email, password)
       .then((res) => {
-        console.log(res.user);
-        alert("Login Successfully");
+        // console.log(res.user);
+        alert(`${res.user.displayName} Login Successfully`);
         setLoading(false);
         navigate(location?.state || "/");
       })
